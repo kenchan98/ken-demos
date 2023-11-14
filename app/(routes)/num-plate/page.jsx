@@ -7,6 +7,7 @@ import Image from "next/image";
 import loadingIcon from "../../../public/images/grid.svg";
 
 export default function numberPlateRecognition() {
+  const [cameraMode, setCameraMode] = useState("environment");
   const [imgData, setImgData] = useState(null);
   const [isDataFetched, setIsDataFetched] = useState(false);
   const [plateNumber, setPlateNumber] = useState("");
@@ -27,7 +28,7 @@ export default function numberPlateRecognition() {
     //width: { min: 240 },
     //height: { min: 720 },
     //aspectRatio: 0.6666666667,
-    facingMode: "user",
+    facingMode: cameraMode,
     //facingMode: { exact: "environment" }
   };
   /* 
