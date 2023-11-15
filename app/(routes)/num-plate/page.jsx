@@ -19,7 +19,10 @@ export default function numberPlateRecognition() {
   const [motStatus, setMotStatus] = useState("");
   const refWebcam = useRef();
 
-  //console.log(process.env.PLATE_RECOGNIZER_KEY);
+  console.log(
+    "__ NEXT_PUBLIC_PLATE_RECOGNIZER_KEY __ : ",
+    process.env.NEXT_PUBLIC_PLATE_RECOGNIZER_KEY
+  );
   /*
       =======================
       video camera constraint
@@ -78,7 +81,7 @@ export default function numberPlateRecognition() {
     fetch("https://api.platerecognizer.com/v1/plate-reader/", {
       method: "POST",
       headers: {
-        Authorization: "Token 925de5e38a4e63269810ab02ec9fb9165054ef85", //`Token ${process.env.PLATE_RECOGNIZER_KEY}`, //, //process.env.PLATE_RECOGNIZER_KEY,
+        Authorization: `Token ${process.env.NEXT_PUBLIC_PLATE_RECOGNIZER_KEY}`, //"Token 925de5e38a4e63269810ab02ec9fb9165054ef85", //, //process.env.PLATE_RECOGNIZER_KEY,
       },
       body: body,
     })

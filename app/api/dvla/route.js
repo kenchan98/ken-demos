@@ -5,11 +5,13 @@ export async function POST(request) {
   const data = await request.json();
   const plateNum = data.plateNum;
   //
+  console.log("___NEXT_PUBLIC_DVLA_KEY ____", process.env.NEXT_PUBLIC_DVLA_KEY);
+  //
   const config = {
     method: "post",
     url: "https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles",
     headers: {
-      "x-api-key": process.env.DVLA_KEY,
+      "x-api-key": process.env.NEXT_PUBLIC_DVLA_KEY,
       "Content-Type": "application/json",
     },
     data: JSON.stringify({ registrationNumber: plateNum }),
