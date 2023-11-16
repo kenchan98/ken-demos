@@ -70,7 +70,9 @@ export default function FnolPhone() {
           }}
         >
           <div className="text-gray-400 p-2">FAM</div>
-          <h1 className="text-2xl m-3">Driver Malik has an accident!</h1>
+          <h1 className="text-2xl m-3 text-black">
+            Driver Malik has an accident!
+          </h1>
         </div>
       )}
     </div>
