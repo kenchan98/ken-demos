@@ -11,7 +11,7 @@ export default function CarInfo(props) {
   return (
     <div className="text-white">
       <div className="bg-gray-200 rounded-lg">
-        <div className="flex text-5xl text-black font-medium p-4 justify-center">
+        <div className="flex text-5xl text-black font-medium m-2 p-4 justify-center">
           {plateNumber}
         </div>
       </div>

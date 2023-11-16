@@ -135,7 +135,7 @@ export default function numberPlateRecognition() {
     <div className="flex h-full flex-col items-center bg-black">
       {!imgData && (
         <div className={style.cameraContainer}>
-          <div className="h-10 text-white flex items-center place-content-center">
+          <div className="h-10 text-white flex items-center place-content-center bg-black sticky top-0">
             Number Plate Recognition
           </div>
 
@@ -148,7 +148,7 @@ export default function numberPlateRecognition() {
             ref={refWebcam}
           />
           <button
-            className="bg-gray-50 hover:bg-blue-300 font-bold py-2 px-4 rounded m-4 w-1/3"
+            className="bg-gray-50 hover:bg-blue-300 text-black font-bold py-2 px-4 rounded m-4 w-1/3"
             onClick={capturePress}
           >
             Check
@@ -158,7 +158,7 @@ export default function numberPlateRecognition() {
       {
         imgData && (
           <div className={style.cameraContainer}>
-            <div className="w-full h-10 text-white flex items-center justify-end p-4">
+            <div className="w-full h-10 text-white flex items-center justify-end p-4 bg-black sticky top-0">
               <Image
                 width="20"
                 height="20"
