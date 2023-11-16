@@ -1,26 +1,27 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
-export default function Home() {
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+
+export default function PhonePage() {
+  const pathName = usePathname();
+
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
-      <Link href="./fnol">
+      <Link href={pathName + "/control"}>
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4">
-          FNOL crash
+          control
         </button>
       </Link>
-      <Link href="./cctv">
+      <Link href={pathName + "/phone"}>
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4">
-          CCTV
+          Phone
         </button>
       </Link>
-      <Link href="./camera">
+      <Link href={pathName + "/desktop"}>
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4">
-          Camera
-        </button>
-      </Link>
-      <Link href="./num-plate">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4">
-          Number Plate Recognition
+          Desktop
         </button>
       </Link>
     </main>
