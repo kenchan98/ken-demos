@@ -7,6 +7,7 @@ import Image from "next/image";
 import iconLoad from "../../../public/images/icon_loading.svg";
 import iconClose from "../../../public/images/icon_close.svg";
 import CarInfo from "@/app/_components/carInfo";
+import Link from "next/link";
 
 export default function numberPlateRecognition() {
   const [cameraMode, setCameraMode] = useState("environment");
@@ -135,9 +136,11 @@ export default function numberPlateRecognition() {
     <div className="flex h-full flex-col items-center bg-black">
       {!imgData && (
         <div className={style.cameraContainer}>
-          <div className="h-10 text-white flex items-center place-content-center bg-black sticky top-0">
-            Number Plate Recognition
-          </div>
+          <Link href="/">
+            <div className="h-10 text-white flex text-lg items-center place-content-center bg-black sticky top-0">
+              Number Plate Recognition
+            </div>
+          </Link>
 
           <Webcam
             audio={false}
