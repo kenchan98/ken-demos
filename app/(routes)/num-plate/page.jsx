@@ -4,7 +4,9 @@ import Webcam from "react-webcam";
 import style from "./style.module.css";
 import { useState, useRef } from "react";
 import Image from "next/image";
-import loadingIcon from "../../../public/images/grid.svg";
+import iconLoad from "../../../public/images/icon_loading.svg";
+import iconClose from "../../../public/images/icon_close.svg";
+import CarInfo from "@/app/_components/carInfo";
 
 export default function numberPlateRecognition() {
   const [cameraMode, setCameraMode] = useState("environment");
@@ -17,6 +19,7 @@ export default function numberPlateRecognition() {
   const [colour, setColour] = useState("");
   const [motExpiryDate, setMotExpiryDate] = useState("");
   const [motStatus, setMotStatus] = useState("");
+  const [noPlateRecognised, setNoPlateRecognised] = useState(false);
   const refWebcam = useRef();
 
   console.log(
@@ -92,7 +95,10 @@ export default function numberPlateRecognition() {
           const plateNum = json.results[0].plate.toUpperCase();
           request_DVLA(plateNum);
         } else {
-          //setPlateNumber("No vehicle detected");
+          console.log(" no plate recognised!!!");
+
+          setIsDataFetched(true);
+          setNoPlateRecognised(true);
         }
       })
       .catch((err) => {
@@ -116,10 +122,23 @@ export default function numberPlateRecognition() {
 
 
   */
+  function resetResult() {
+    setImgData(null);
+    setIsDataFetched(false);
+    setNoPlateRecognised(false);
+  }
+  /*
+
+
+  */
   return (
-    <div className="flex min-h-screen flex-col items-center">
+    <div className="flex h-full flex-col items-center bg-black">
       {!imgData && (
         <div className={style.cameraContainer}>
+          <div className="h-10 text-white flex items-center place-content-center">
+            Number Plate Recognition
+          </div>
+
           <Webcam
             audio={false}
             imageSmoothing={true}
@@ -129,37 +148,44 @@ export default function numberPlateRecognition() {
             ref={refWebcam}
           />
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4"
+            className="bg-gray-50 hover:bg-blue-300 font-bold py-2 px-4 rounded m-4 w-1/3"
             onClick={capturePress}
           >
-            Take photo
+            Check
           </button>
         </div>
       )}
       {
         imgData && (
           <div className={style.cameraContainer}>
+            <div className="w-full h-10 text-white flex items-center justify-end p-4">
+              <Image
+                width="20"
+                height="20"
+                src={iconClose}
+                onClick={resetResult}
+              />
+            </div>
             <img src={imgData} />
-            <div className="flex flex-col items-center justify-center h-1/2">
+            <div className="flex flex-col items-center justify-center h-1/2 w-full">
               {!isDataFetched ? (
-                <Image width="40" src={loadingIcon} />
+                <Image width="40" src={iconLoad} />
               ) : (
-                <div>
-                  <div className="text-5xl p-10">{plateNumber}</div>
-                  <div className="text-2xl p-2">
-                    {make} : {colour}
-                  </div>
-                  <div className="text-2xl p-2">
-                    Register Date : {registerDate}
-                  </div>
-                  <div className="text-2xl p-2">
-                    Tax Status : {vehicleTaxStatus}
-                  </div>
-                  <div className="text-2xl p-2">MOT Status : {motStatus}</div>
-                  <div className="text-2xl p-2">
-                    MOT Expiry Date : {motExpiryDate}
-                  </div>
-                </div>
+                <>
+                  {noPlateRecognised ? (
+                    <div className="text-white">No number plate recognised</div>
+                  ) : (
+                    <CarInfo
+                      plateNumber={plateNumber}
+                      registerDate={registerDate}
+                      vehicleTaxStatus={vehicleTaxStatus}
+                      colour={colour}
+                      make={make}
+                      motExpiryDate={motExpiryDate}
+                      motStatus={motStatus}
+                    />
+                  )}
+                </>
               )}
             </div>
           </div>

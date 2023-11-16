@@ -4,8 +4,8 @@
   "display": "standalone",
   "orientation": "portrait",
   "start_url": "/",
-  "name": "ken-demos-with-nextjs",
-  "short_name": "ken-demo",
+  "name": "demo-next14",
+  "short_name": "Demo Next14",
   "icons": [
     {
       "src": "/manifest/icon-192x192.png",

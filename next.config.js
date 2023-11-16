@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 
-const nextConfig = {};
+const nextConfig = {
+  compiler: {
+    removeConsole: true,
+  },
+};
 module.exports = nextConfig;
 
 const withPWA = require("next-pwa")({
