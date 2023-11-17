@@ -42,7 +42,7 @@ export default function FnolPhone() {
       setTimeout(() => {
         setNotification(true);
         soundNotif();
-      }, 8000);
+      }, 4000);
     } else {
       setNotification(false);
     }
@@ -55,7 +55,7 @@ export default function FnolPhone() {
   setInterval(updateClockTime, 60000);
 
   return (
-    <div className="flex flex-col items-stretch min-h-screen bg-phone-bg bg-cover bg-center bg-no-repeat ">
+    <div className="flex flex-col items-stretch min-h-screen bg-phone-bg bg-cover bg-center bg-no-repeat select-none">
       <div className="flex font-extralight text-8xl text-white w-full h-1/3 justify-center p-20">
         <h1>{clockTime}</h1>
       </div>

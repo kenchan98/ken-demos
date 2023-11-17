@@ -4,7 +4,7 @@ import { setFirebaseDoc } from "@/libs/firebase";
 import useSound from "use-sound";
 
 export default function FnolControl() {
-  const [soundCrash] = useSound("/sound/sound-crash.mp3");
+  const [soundCrash] = useSound("/sound/sound-crash2.mp3");
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen ">

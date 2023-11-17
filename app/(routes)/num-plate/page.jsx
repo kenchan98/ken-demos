@@ -133,7 +133,7 @@ export default function numberPlateRecognition() {
 
   */
   return (
-    <div className="flex h-full flex-col items-center bg-black">
+    <div className="flex h-full flex-col items-center bg-black select-none">
       {!imgData && (
         <div className={style.cameraContainer}>
           <Link href="/">
