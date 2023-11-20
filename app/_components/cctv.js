@@ -19,7 +19,10 @@ export default function CCTV(props) {
         </button>
       </div>
       <video loop autoPlay muted ref={refTarget}>
-        <source src={props.url} type="video/mp4" />
+        <source
+          src={props.url + "?=random=" + Math.random()}
+          type="video/mp4"
+        />
       </video>
     </div>
   );

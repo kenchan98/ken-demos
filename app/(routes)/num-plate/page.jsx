@@ -8,6 +8,7 @@ import iconLoad from "../../../public/images/icon_loading.svg";
 import iconClose from "../../../public/images/icon_close.svg";
 import CarInfo from "@/app/_components/carInfo";
 import Link from "next/link";
+import useSound from "use-sound";
 
 export default function numberPlateRecognition() {
   const [cameraMode, setCameraMode] = useState("environment");
@@ -22,6 +23,7 @@ export default function numberPlateRecognition() {
   const [motStatus, setMotStatus] = useState("");
   const [noPlateRecognised, setNoPlateRecognised] = useState(false);
   const refWebcam = useRef();
+  const [clickSound] = useSound("/sound/sound-click-1.mp3");
 
   console.log(
     "__ NEXT_PUBLIC_PLATE_RECOGNIZER_KEY __ : ",
@@ -118,6 +120,7 @@ export default function numberPlateRecognition() {
     // send image to Plate Recognizer
     request_PlateRecognizer(img);
     //request_DVLA("GV62HKP");
+    clickSound();
   }
   /*
 

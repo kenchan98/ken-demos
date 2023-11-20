@@ -17,8 +17,8 @@ import CCTVs from "@/app/_components/cctvs";
 import style from "./style.module.css";
 export default function CCTVpage() {
   return (
-    <>
-      <CCTVs className="invisible" />
-    </>
+    <div className="flex justify-center w-full">
+      <CCTVs />
+    </div>
   );
 }
