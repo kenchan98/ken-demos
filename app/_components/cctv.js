@@ -13,8 +13,8 @@ export default function CCTV(props) {
   }, []);*/
   return (
     <div className="w-auto p-2 group relative">
-      <div className="absolute w-full h-full flex justify-center content-center">
-        <button className="bg-white m-4 p-4 h-1/4 mt-25 invisible items-center group-hover:visible">
+      <div className="absolute w-full h-full flex justify-center items-center">
+        <button className="bg-white m-4 px-4 h-1/5 invisible rounded-2xl items-center group-hover:visible">
           Request footage
         </button>
       </div>

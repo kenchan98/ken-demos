@@ -5,9 +5,14 @@
     "https://s3-eu-west-1.amazonaws.com/jamcams.tfl.gov.uk/00001.03506.mp4",
     "https://s3-eu-west-1.amazonaws.com/jamcams.tfl.gov.uk/00001.03540.mp4",
     "https://s3-eu-west-1.amazonaws.com/jamcams.tfl.gov.uk/00001.03601.mp4",
-    "https://s3-eu-west-1.amazonaws.com/jamcams.tfl.gov.uk/00001.03609.mp4",
-    "https://s3-eu-west-1.amazonaws.com/jamcams.tfl.gov.uk/00001.03611.mp4",
     "https://s3-eu-west-1.amazonaws.com/jamcams.tfl.gov.uk/00001.04226.mp4",
-    "https://s3-eu-west-1.amazonaws.com/jamcams.tfl.gov.uk/00001.06510.mp4"
+    "https://s3-eu-west-1.amazonaws.com/jamcams.tfl.gov.uk/00001.06510.mp4",
+    "https://s3-eu-west-1.amazonaws.com/jamcams.tfl.gov.uk/00001.03553.mp4",
+    "https://s3-eu-west-1.amazonaws.com/jamcams.tfl.gov.uk/00001.03555.mp4"
+  ],
+  "cctv_spare": [
+    "https://s3-eu-west-1.amazonaws.com/jamcams.tfl.gov.uk/00002.00434.mp4",
+    "https://s3-eu-west-1.amazonaws.com/jamcams.tfl.gov.uk/00001.03611.mp4",
+    "https://s3-eu-west-1.amazonaws.com/jamcams.tfl.gov.uk/00001.03609.mp4"
   ]
 }
