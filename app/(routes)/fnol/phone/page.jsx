@@ -61,7 +61,7 @@ export default function FnolPhone() {
       </div>
       {notification && (
         <div
-          className="flex flex-col m-6 p-4 rounded-lg bg-gray-200"
+          className="flex flex-row m-6 p-4 rounded-lg bg-gray-200 items-center"
           id="notification"
           onClick={() => {
             //setIsFirestoreDataReceived(false);
@@ -69,8 +69,8 @@ export default function FnolPhone() {
             setFirebaseDoc("fnol", "signal", false);
           }}
         >
-          <div className="text-gray-400 p-2">FAM</div>
-          <h1 className="text-2xl m-3 text-black">
+          <div className="flex-none text-gray-400 p-2 bg-red-600 rounded-3xl w-7 h-7 w-10"></div>
+          <h1 className="grow text-2xl m-3 text-black">
             Driver Malik has an accident!
           </h1>
         </div>
@@ -78,3 +78,8 @@ export default function FnolPhone() {
     </div>
   );
 }
+
+/*
+<div className="flex-none content-center text-gray-400">
+{new Date().toLocaleTimeString()}
+</div>*/
