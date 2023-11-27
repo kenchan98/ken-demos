@@ -6,14 +6,13 @@ import Image from "next/image";
 import image from "@/public/images/app_img_0.png";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import PhoneAppHeader from "@/app/_components/header-app";
 
 export default function Page() {
   return (
     <div className="flex flex-col text-white items-center w-full min-h-screen bg-black">
       {/* ====== TOP ====== */}
-      <div className="h-12 flex-none w-full text-white bg-gray-900">
-        <div className="text-blue-600 m-4">BACK</div>
-      </div>
+      <PhoneAppHeader />
       {/* ====== MIDDLE ====== */}
       <motion.div
         className="flex flex-col grow items-center justify-center"

@@ -7,14 +7,13 @@ import image from "@/public/images/app_img_1.png";
 import iconCamera from "@/public/images/icon-camera.svg";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import PhoneAppHeader from "@/app/_components/header-app";
 
 export default function Page() {
   return (
     <div className="flex flex-col text-white items-center w-full min-h-screen bg-black">
       {/* ====== TOP ====== */}
-      <div className="h-12 flex-none w-full text-white bg-gray-900">
-        <div className="text-blue-600 m-4">BACK</div>
-      </div>
+      <PhoneAppHeader />
       {/* ====== MIDDLE ====== */}
       <motion.div
         className="flex flex-col grow items-center justify-center"

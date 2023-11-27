@@ -6,10 +6,13 @@ import { useRef, useState, useEffect } from "react";
 import useSound from "use-sound";
 import { motion } from "framer-motion";
 import IconThumbs from "@/app/_components/icon-thumbs";
+import Gallery from "@/app/_components/gallery";
+import PhoneAppHeader from "@/app/_components/header-app";
 //
 //
 export default function CameraPage() {
   const [imgDataList, setImgDataList] = useState([]);
+  const [showGallery, setShowGallery] = useState(false);
   const refWebcam = useRef();
   const [clickSound] = useSound("/sound/sound-click-1.mp3");
   /*
@@ -21,7 +24,20 @@ export default function CameraPage() {
     facingMode: "user",
     //facingMode: { exact: "environment" }
   };
+  /*
 
+
+  */
+  function onClickBackButtonGallery() {
+    setShowGallery(false);
+  }
+  function onPressGalleryIcon() {
+    setShowGallery(true);
+  }
+  /*
+
+
+  */
   useEffect(() => {
     console.log(imgDataList);
   }, [imgDataList]);
@@ -31,17 +47,17 @@ export default function CameraPage() {
   */
   function capturePress() {
     const img = refWebcam.current.getScreenshot();
-    setImgDataList([...imgDataList, img]);
-    //
-    clickSound();
+    if (img) {
+      setImgDataList([...imgDataList, img]);
+      //
+      clickSound();
+    }
   }
 
   return (
     <div className="flex flex-col text-white items-center w-full min-h-screen bg-black">
       {/* ====== TOP ====== */}
-      <div className="h-12 flex-none w-full text-white bg-gray-900">
-        <div className="text-blue-600 m-4">BACK</div>
-      </div>
+      <PhoneAppHeader />
       {/* ====== MIDDLE ====== */}
       <div className="flex flex-col w-full grow items-center ">
         <Webcam
@@ -66,24 +82,29 @@ export default function CameraPage() {
       <div className="flex flex-none items-center justify-center h-36 w-full bg-gray-900">
         <div className="w-1/3"></div>
         <CameraButton onPressed={capturePress} />
-        <div className="w-1/3">
+        <div className="w-1/3" onClick={onPressGalleryIcon}>
           {imgDataList.length > 0 && <IconThumbs imgDataList={imgDataList} />}
         </div>
       </div>
+
+      {/* ====== GALLERY ====== */
+      /*<motion.div
+        initial={{ opacity: 0, y: 0 }}
+        animate={{ opacity: 1, y: -900 }}
+        className="relative block top-1/2 w-full h-full bg-red-300 "
+      >
+        <div className="absolute block w-1/2 h-full bg-green-300/50">
+          GALLERY
+        </div>
+  </motion.div>*/}
+      {showGallery && (
+        <div className="absolute w-full h-full bg-green-300/50">
+          <Gallery
+            imgDataList={imgDataList}
+            onClickBackButton={onClickBackButtonGallery}
+          />
+        </div>
+      )}
     </div>
   );
-  /*
-  return (
-    <div className={style.App}>
-      <div className="flex flex-col items-start w-full h-full">
-        <div className="h-40 text-white">HEADING</div>
-        
-        <div className="flex justify-center bg-red-200 w-full h-full">
-                  {imgDataList.map((img, index) => (
-          <img width="200" height="200" key={index} src={img} alt="image" />
-        ))}
-        </div>
-      </div>
-    </div>
-  );*/
 }
