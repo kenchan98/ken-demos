@@ -7,6 +7,7 @@ import image from "@/public/images/app_img_0.png";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import PhoneAppHeader from "@/app/_components/header-app";
+import axios from "axios";
 
 export default function Page() {
   return (

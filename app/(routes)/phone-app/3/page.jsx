@@ -2,27 +2,31 @@
 
 import Webcam from "react-webcam";
 import CameraButton from "@/app/_components/button-camera";
+import Button from "@/app/_components/button-app";
 import { useRef, useState, useEffect } from "react";
 import useSound from "use-sound";
 import { motion } from "framer-motion";
 import IconThumbs from "@/app/_components/icon-thumbs";
 import Gallery from "@/app/_components/gallery";
 import PhoneAppHeader from "@/app/_components/header-app";
+import Link from "next/link";
+import { useDataContext } from "@/app/_providers/context";
 //
 //
 export default function CameraPage() {
-  const [imgDataList, setImgDataList] = useState([]);
+  const { imgData_1 } = useDataContext();
+  const [imgDataList, setImgDataList] = imgData_1;
   const [showGallery, setShowGallery] = useState(false);
-  const refWebcam = useRef();
   const [clickSound] = useSound("/sound/sound-click-1.mp3");
+  const refWebcam = useRef();
   /*
 
 
   */
   const videoConstraints = {
     aspectRatio: 0.8,
-    facingMode: "user",
-    //facingMode: { exact: "environment" }
+    //facingMode: "user",
+    facingMode: "environment",
   };
   /*
 
@@ -81,7 +85,13 @@ export default function CameraPage() {
       {/* ====== BOTTOM ====== */}
       <div className="flex flex-none items-center justify-center h-36 w-full bg-gray-900">
         <div className="w-1/3"></div>
-        <CameraButton onPressed={capturePress} />
+        {imgDataList.length < 3 ? (
+          <CameraButton onPressed={capturePress} />
+        ) : (
+          <Link href="./4">
+            <Button>Next</Button>
+          </Link>
+        )}
         <div className="w-1/3" onClick={onPressGalleryIcon}>
           {imgDataList.length > 0 && <IconThumbs imgDataList={imgDataList} />}
         </div>
@@ -98,7 +108,7 @@ export default function CameraPage() {
         </div>
   </motion.div>*/}
       {showGallery && (
-        <div className="absolute w-full h-full bg-green-300/50">
+        <div className="absolute w-full  bg-green-300/50">
           <Gallery
             imgDataList={imgDataList}
             onClickBackButton={onClickBackButtonGallery}

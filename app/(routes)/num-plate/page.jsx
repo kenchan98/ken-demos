@@ -113,14 +113,16 @@ export default function numberPlateRecognition() {
       =======================
       cpature button clicked
   */
-  function capturePress() {
+  function onClickCheckButton() {
     const img = refWebcam.current.getScreenshot();
-    setImgData(img);
-    setIsDataFetched(false);
-    // send image to Plate Recognizer
-    request_PlateRecognizer(img);
-    //request_DVLA("GV62HKP");
-    clickSound();
+    if (img) {
+      setImgData(img);
+      setIsDataFetched(false);
+      // send image to Plate Recognizer
+      request_PlateRecognizer(img);
+      //request_DVLA("GV62HKP");
+      clickSound();
+    }
   }
   /*
 
@@ -155,7 +157,7 @@ export default function numberPlateRecognition() {
           />
           <button
             className="bg-gray-50 hover:bg-blue-300 text-black font-bold py-2 px-4 rounded m-4 w-1/3"
-            onClick={capturePress}
+            onClick={onClickCheckButton}
           >
             Check
           </button>
@@ -170,6 +172,7 @@ export default function numberPlateRecognition() {
                 height="20"
                 src={iconClose}
                 onClick={resetResult}
+                alt="close button"
               />
             </div>
             <img src={imgData} />
