@@ -24,7 +24,7 @@ export default function CameraPage() {
 
   */
   const videoConstraints = {
-    aspectRatio: 0.8,
+    //aspectRatio: 0.8,
     //facingMode: "user",
     facingMode: "environment",
   };
@@ -69,7 +69,7 @@ export default function CameraPage() {
           audio={false}
           imageSmoothing={true}
           screenshotFormat="image/jpeg"
-          mirrored={true}
+          mirrored={false}
           videoConstraints={videoConstraints}
           ref={refWebcam}
         />

@@ -18,6 +18,11 @@ export default function Home() {
           Phone App
         </button>
       </Link>
+      <Link href="./calm">
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4">
+          Lava lamp
+        </button>
+      </Link>
       <Link href="./damage-detect">
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4">
           Damage Detection
