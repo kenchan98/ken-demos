@@ -14,7 +14,7 @@ import { dataURItoBlob } from "@/libs/imageHelper";
 export default function numberPlateRecognition() {
   const refWebcam = useRef();
   const refCanvas = useRef();
-  const [imgData, setImgData] = useState();
+  const [imgData, setImgData] = useState(null);
   const [isDataFetched, setIsDataFetched] = useState(false);
   const [severity, setSeverity] = useState("");
   const [clickSound] = useSound("/sound/sound-click-1.mp3");
@@ -135,7 +135,7 @@ export default function numberPlateRecognition() {
           </button>
         </div>
       )}
-      {true && (
+      {imgData && (
         <div className="flex flex-col w-full h-full min-h-screen text-white">
           {/* ======== TOP ========= */}
           <div className="w-full h-12 text-white flex items-center justify-end p-4 bg-black sticky top-0">

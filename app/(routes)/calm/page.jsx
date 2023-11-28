@@ -9,6 +9,7 @@ export default function Page() {
       autoPlay
       muted
       loop
+      playsInline
       className="fixed min-w-screen min-h-screen"
       ref={refVideo}
       onClick={() => {
