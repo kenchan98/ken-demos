@@ -46,36 +46,41 @@ export default function numberPlateRecognition() {
     in turn to make a request at DVLA
   */
   function request_DVLA(plateNum) {
-    fetch("/api/dvla", {
-      method: "POST",
-      body: JSON.stringify({
-        plateNum: plateNum,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setIsDataFetched(true);
-        console.log(JSON.parse(data.data));
-        const {
-          registrationNumber,
-          taxStatus,
-          monthOfFirstRegistration,
-          colour,
-          make,
-          motExpiryDate,
-          motStatus,
-        } = JSON.parse(data.data);
-        setPlateNumber(registrationNumber);
-        setRegisterDate(monthOfFirstRegistration);
-        setVehicleTaxStatus(taxStatus);
-        setMake(make);
-        setColour(colour);
-        setMotExpiryDate(motExpiryDate);
-        setMotStatus(motStatus);
-      });
+    try {
+      fetch("/api/dvla", {
+        method: "POST",
+        body: JSON.stringify({
+          plateNum: plateNum,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setIsDataFetched(true);
+          console.log(JSON.parse(data.data));
+          const {
+            registrationNumber,
+            taxStatus,
+            monthOfFirstRegistration,
+            colour,
+            make,
+            motExpiryDate,
+            motStatus,
+          } = JSON.parse(data.data);
+          setPlateNumber(registrationNumber);
+          setRegisterDate(monthOfFirstRegistration);
+          setVehicleTaxStatus(taxStatus);
+          setMake(make);
+          setColour(colour);
+          setMotExpiryDate(motExpiryDate);
+          setMotStatus(motStatus);
+        });
+    } catch (err) {
+      console.log("------ ERROR ------");
+      console.log(err);
+    }
   }
   /*
       ===============================
@@ -178,7 +183,7 @@ export default function numberPlateRecognition() {
             <img src={imgData} />
             <div className="flex flex-col items-center justify-center h-1/2 w-full">
               {!isDataFetched ? (
-                <Image width="40" src={iconLoad} />
+                <Image width="40" src={iconLoad} alt="loading icon" />
               ) : (
                 <>
                   {noPlateRecognised ? (

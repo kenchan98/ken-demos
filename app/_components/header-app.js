@@ -9,9 +9,9 @@ export default function PhoneAppHeader(props) {
     },
   } = props;
   return (
-    <div className="h-1/4 flex-none sticky top-0 w-full text-white bg-gray-900">
+    <div className="h-14 flex-none sticky top-0 w-full text-white bg-gray-900">
       <div
-        className="absolute top-0 left-0 text-blue-600 m-3 "
+        className="absolute top-0 left-0 text-blue-600 m-4 "
         onClick={onClickBackButton}
       >
         BACK
