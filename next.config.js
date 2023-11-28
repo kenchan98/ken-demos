@@ -17,3 +17,7 @@ const withPWA = require("next-pwa")({
 module.exports = withPWA({
   reactStrictMode: true,
 });
+
+const withVideos = require("next-videos");
+
+module.exports = withVideos();
