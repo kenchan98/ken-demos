@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html className="select-none" lang="en">
+    <html className="select-none overscroll-none" lang="en">
       <head>
         <link rel="manifest" href="/manifest.json" />
       </head>

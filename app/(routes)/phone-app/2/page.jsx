@@ -13,7 +13,7 @@ export default function Page() {
   return (
     <div className="flex flex-col text-white items-center w-full min-h-screen bg-black">
       {/* ====== TOP ====== */}
-      <PhoneAppHeader />
+      <PhoneAppHeader back />
       {/* ====== MIDDLE ====== */}
       <motion.div
         className="flex flex-col grow items-center justify-center"

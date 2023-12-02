@@ -83,7 +83,7 @@ export default function CameraPage() {
         </motion.h1>
       </div>
       {/* ====== BOTTOM ====== */}
-      <div className="flex flex-none items-center justify-center h-36 w-full bg-gray-900">
+      <div className="flex fixed bottom-0 items-center justify-center h-1/6 w-full bg-gray-900">
         <div className="w-1/3"></div>
         {imgDataList.length < 3 ? (
           <CameraButton onPressed={capturePress} />

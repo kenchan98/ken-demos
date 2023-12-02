@@ -70,8 +70,8 @@ export default function numberPlateRecognition() {
   function sendToRoboflowForDetection(imgPath) {
     axios({
       method: "POST",
-      url: "https://detect.roboflow.com/dm-vx4s7/3",
-      //url: "https://outline.roboflow.com/damage_severity/1",
+      //url: "https://detect.roboflow.com/dm-vx4s7/3",
+      url: "https://outline.roboflow.com/damage_severity/1",
       //url: "https://detect.roboflow.com/damagedetection4classfinal/7",
       //url: "https://outline.roboflow.com/car-damages-abjy0/1",
       params: {
@@ -94,10 +94,10 @@ export default function numberPlateRecognition() {
           context.lineWidth = 3;
           context.strokeStyle = "red";
           context.rect(
-            result.x / 2,
-            result.y / 2,
-            result.width / 2,
-            result.height / 2
+            result.x - result.width / 2,
+            result.y - result.height / 2,
+            result.x - 50 + result.width / 2,
+            result.y - 50 + result.height / 2
           );
           context.stroke();
           setIsDataFetched(true);
@@ -138,24 +138,17 @@ export default function numberPlateRecognition() {
       {imgData && (
         <div className="flex flex-col w-full h-full min-h-screen text-white">
           {/* ======== TOP ========= */}
-          <div className="w-full h-12 text-white flex items-center justify-end p-4 bg-black sticky top-0">
-            <Image
-              width="20"
-              height="20"
-              src={iconClose}
-              onClick={resetResult}
-              alt="close button"
-            />
-          </div>
+          <PhoneAppHeader buttonClose onClickCloseButton={resetResult} />
+
           {/* ======== IMAGE ========= */}
           <div className="relative">
-            <img className="absolute" src={imgData} />
-            <div className="absolute h-1/2 w-full text-2xl">
+            <img src={imgData} />
+            <div className="absolute top-0">
               <canvas ref={refCanvas} />
             </div>
           </div>
           {/* ======== BOTTOM ========= */}
-          <div className="flex grow w-full items-center justify-center text-white text-4xl text-center">
+          <div className="flex grow w-full items-center justify-center text-white text-2xl text-center">
             {!isDataFetched ? (
               <Image
                 className="m-4"
