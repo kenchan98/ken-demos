@@ -124,7 +124,7 @@ export default function numberPlateRecognition() {
             imageSmoothing={true}
             screenshotFormat="image/jpeg"
             mirrored={false}
-            videoConstraints={{ facingMode: "environment", aspectRatio: 1.6 }}
+            videoConstraints={{ facingMode: "environment", aspectRatio: 0.8 }}
             ref={refWebcam}
           />
           <button
