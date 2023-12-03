@@ -1,14 +1,14 @@
 "use client";
 
 import Webcam from "react-webcam";
-import CameraButton from "@/app/_components/button-camera";
-import Button from "@/app/_components/button-app";
+import CameraButton from "@/app/_components/phoneApp-buttonCamera";
+import Button from "@/app/_components/phoneApp-button";
 import { useRef, useState, useEffect } from "react";
 import useSound from "use-sound";
 import { motion } from "framer-motion";
 import IconThumbs from "@/app/_components/icon-thumbs";
 import Gallery from "@/app/_components/gallery";
-import PhoneAppHeader from "@/app/_components/header-app";
+import PhoneAppHeader from "@/app/_components/phoneApp-header";
 import Link from "next/link";
 import { useDataContext } from "@/app/_providers/context";
 //
@@ -17,7 +17,7 @@ export default function CameraPage() {
   const { imgData_1 } = useDataContext();
   const [imgDataList, setImgDataList] = imgData_1;
   const [showGallery, setShowGallery] = useState(false);
-  const [clickSound] = useSound("/sound/sound-click-1.mp3");
+  const [clickSound] = useSound("/sound/sound-shutter.mp3");
   const refWebcam = useRef();
   /*
 
@@ -61,7 +61,7 @@ export default function CameraPage() {
   return (
     <div className="flex flex-col text-white items-center w-full min-h-screen bg-black">
       {/* ====== TOP ====== */}
-      <PhoneAppHeader />
+      <PhoneAppHeader buttonBack />
       {/* ====== MIDDLE ====== */}
       <div className="flex flex-col w-full grow items-center ">
         <Webcam
@@ -74,7 +74,7 @@ export default function CameraPage() {
           ref={refWebcam}
         />
         <motion.h1
-          className="flex text-center m-8 text-4xl font-bold"
+          className="flex text-center m-8 text-3xl font-bold"
           initial={{ opacity: 1 }}
           animate={{ opacity: 0 }}
           transition={{ delay: 2 }}
@@ -86,7 +86,7 @@ export default function CameraPage() {
       {!showGallery && (
         <div className="flex fixed bottom-0 items-center justify-center h-1/6 w-full bg-gray-900">
           <div className="w-1/3"></div>
-          {imgDataList.length < 30 ? (
+          {imgDataList.length < 3 ? (
             <CameraButton onPressed={capturePress} />
           ) : (
             <Link href="./4">

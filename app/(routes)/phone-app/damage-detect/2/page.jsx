@@ -4,8 +4,7 @@ import Webcam from "react-webcam";
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { uploadToStorage } from "@/libs/firebase";
-import iconLoad from "../../../public/images/icon_loading.svg";
-import iconClose from "../../../public/images/icon_close.svg";
+import iconLoad from "@/public/images/icon_loading.svg";
 import axios from "axios";
 import useSound from "use-sound";
 import PhoneAppHeader from "@/app/_components/phoneApp-header";
@@ -118,7 +117,7 @@ export default function numberPlateRecognition() {
     <div className="flex h-full flex-col items-center bg-black select-none">
       {!imgData && (
         <div className="flex flex-col text-white items-center w-full min-h-screen bg-black">
-          <PhoneAppHeader title="Car Damage Detection" />
+          <PhoneAppHeader buttonBack title="Car Damage Imspection" />
           <Webcam
             audio={false}
             imageSmoothing={true}

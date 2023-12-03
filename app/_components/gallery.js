@@ -1,11 +1,11 @@
-import PhoneAppHeader from "./header-app";
+import PhoneAppHeader from "./phoneApp-header";
 
 export default function Gallery(props) {
   return (
     <>
       {/* ====== TOP ====== */}
       <PhoneAppHeader
-        title="Photos"
+        title="Gallery"
         buttonClose
         onClickCloseButton={props.onClickCloseButton}
       />
