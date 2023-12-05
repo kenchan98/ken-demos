@@ -12,10 +12,10 @@ export default function Page() {
   function updateImgPath(step) {
     let newValue;
     if (step === "+") {
-      if (index < 22) {
+      if (index < 21) {
         newValue = index + 1;
       } else {
-        newValue = 22;
+        newValue = 21;
       }
     } else if (step === "-") {
       if (index > 2) {
@@ -41,6 +41,7 @@ export default function Page() {
         alt="static image"
         onClick={() => {
           updateImgPath("+");
+          clickSound();
         }}
       />
       <div
